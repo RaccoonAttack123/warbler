@@ -71,4 +71,4 @@ class MessageViewTestCase(TestCase):
             msg = Message.query.one()
             self.assertEqual(msg.text, "Hello")
 
-#hello!
+#part 3 on going
