@@ -47,6 +47,7 @@
     <div class="col-lg-6 col-md-8 col-sm-12">
       <ul class="list-group" id="messages">
         {% for msg in messages %}
+        <br>
           <li class="list-group-item">
             <a href="/messages/{{ msg.id }}" class="message-link"/>
             <a href="/users/{{ msg.user.id }}">
@@ -56,8 +57,23 @@
               <a href="/users/{{ msg.user.id }}">@{{ msg.user.username }}</a>
               <span class="text-muted">{{ msg.timestamp.strftime('%d %B %Y') }}</span>
               <p>{{ msg.text }}</p>
+
             </div>
           </li>
+          <br>
+          {% if g.user.user_id != msg.user.id %}
+                {% if msg in g.user.liked_messages %}
+                  <form method="POST"
+                        action="/messages/{{msg.id}}/like">
+                    <button class="btn btn-outline-danger">Unlike</button>
+                  </form>
+                {% else %}
+                  <form method="POST"
+                        action="/messages/{{msg.id}}/like">
+                    <button class="btn btn-primary">Like</button>
+                  </form>
+                {% endif %}
+              {% endif %}
         {% endfor %}
       </ul>
     </div>

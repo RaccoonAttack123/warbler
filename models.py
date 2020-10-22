@@ -207,5 +207,3 @@ class Like(db.Model):
         db.ForeignKey('messages.id', ondelete='CASCADE'),
         nullable=False, 
     )
-#delete this
-#delete this
