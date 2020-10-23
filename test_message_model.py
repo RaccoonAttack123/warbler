@@ -38,7 +38,7 @@ class MessageModelTestCase(TestCase):
         db.drop_all()
         db.create_all()
 
-        self.uid = 94566
+        self.uid = 35938
         u = User.signup("testing", "testing@test.com", "password", None)
         u.id = self.uid
         db.session.commit()
@@ -75,7 +75,7 @@ class MessageModelTestCase(TestCase):
         )
 
         u = User.signup("yetanothertest", "t@email.com", "password", None)
-        uid = 888
+        uid = 8495
         u.id = uid
         db.session.add_all([m1, m2, u])
         db.session.commit()
